@@ -1,0 +1,26 @@
+/* pages/preview/preview.wxss */
+.preview-page{
+	display: flex;
+	flex-direction: column;
+	padding: 10rpx 25rpx;
+}
+/*标题处的样式*/
+.header{
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid rgba(180, 180, 180, 1);
+}
+/*奖励红包的样式*/
+.question-reward{
+	margin: 10px 0px;
+	padding: 10px 0px;
+	border-top: 1px solid rgba(180, 180, 180, 1);
+}
+/*底部操作按钮的样式*/
+.footer{
+	display: flex;
+	flex-direction: row;
+}
+.footer button{
+	width: 300rpx;
+}

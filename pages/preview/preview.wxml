@@ -1,0 +1,16 @@
+<import src="/towxml/entry.wxml" />
+<view class='preview-page'>
+    <view class='header'>
+        <text class='question-title'>{{questionTitle}}</text>
+    </view>
+    <view class="question-content">
+        <template is="entry" data="{{...article}}" />
+    </view>
+    <view class='question-reward'>
+        <text>奖励红包：{{questionReward}}元</text>
+    </view>
+    <view class='footer'>
+        <button type='primary' plain="plain" bindtap="onrewrite">修改</button>
+        <button type="primary">提交</button>
+    </view>
+</view>

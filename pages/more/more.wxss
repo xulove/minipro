@@ -1,0 +1,83 @@
+
+/*上部的样式*/
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 750rpx;
+  padding: 10rpx 15rpx;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 5px #eeeeee;
+}
+/*顶部的头像*/
+.avatar{
+  flex: 1;
+}
+.avatar image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.user-info{
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.userinfo-nickname{
+  font-size: 30rpx;
+  color:#818A8F
+}
+.user-info .edit{
+  font-size: 25rpx;
+  color: #bababa;
+}
+/* 开始my-item的样式 */
+.my {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: solid 1px #ebebeb;
+  border-bottom: solid 2px #ebebeb;
+  margin: 20rpx 0;
+  box-shadow: 0 2px 5px #ebebeb;
+}
+.my .my-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 750rpx;
+  background: #ffffff;
+  padding: 0;
+  height: 115rpx;
+
+}
+.my .my-item .myitem-icon{
+  flex: 1;
+  text-align: center;
+
+}
+.my .my-item .myitem-icon image{
+  width: 45rpx;
+  height: 45rpx;
+  padding: 30rpx 0;
+}
+.my .my-item .myitem-name{
+  flex: 5;
+  height: 115rpx;
+  /*padding: 30rpx 0;*/
+  /*border-bottom: solid 1px #ebebeb;*/
+}
+.my .my-item .myitem-name button{
+  font-size: 34rpx;
+  height: 115rpx;
+  width: 100%;
+  line-height: 115rpx; 
+  text-align: left;
+  border:none; 
+   border-bottom: solid 1px #ebebeb;
+}
+
+.my .my-item:last-child .myitem-name{
+  border-bottom: none;
+}

@@ -1,0 +1,5 @@
+<view>
+    <form method="post">
+     <textarea id="mytextarea"></textarea>
+</form>
+</view>

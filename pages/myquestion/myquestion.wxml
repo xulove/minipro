@@ -1,0 +1,31 @@
+<view class="container">
+	<view class='section unHandlequestions'>
+        <view class='questionitem' bindtap='questionitemclick'>
+            <view class='userinfo'>
+                <image src=''></image>
+                <text>豆瓣花田</text>
+            </view>
+            <view class='questiontitle'>
+                <text>以太坊钱包开发中如何获取历史交易记录?以太坊钱包开发中如何获取历史交易记录?以太坊钱包开发中如何获取历史交易记录?</text>
+            </view>
+            <view class='questionstat'>
+                <text style='margin-right:10px;'>2018-10-31</text>
+                <text>等待回答</text>
+            </view>
+        </view>
+        <view class='questionitem'>
+            <view class='userinfo'>
+                <image src=''></image>
+                <text>豆瓣花田</text>
+            </view>
+            <view class='questiontitle'>
+                <text>以太坊钱包开发中如何获取历史交易记录?</text>
+            </view>
+            <view class='questionstat'>
+                <text style='margin-right:10px;'>2018-10-31</text>
+                <text>等待回答</text>
+            </view>
+        </view>
+
+    </view>
+</view>

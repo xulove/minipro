@@ -1,0 +1,82 @@
+.indexpage {
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tipmessage {
+    font-size: 14pt;
+    height: 30px;
+    line-height: 30px;
+    color: #101010;
+}
+
+.askbtn {
+    margin-top: 20px;
+    width: 225px;
+    height: 50px;
+    border-radius: 40px;
+    font-family: Microsoft Yahei;
+    /*border: 1px solid rgba(180, 180, 180, 1);*/
+}
+.tiptitle{
+    margin-top: 25px;
+    padding-left: 30rpx;
+    margin-bottom: 10px;
+    color: #8F8E94 100%
+}
+.unHandlequestions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*待处理的问题*/
+.questionitem{
+    padding: 25rpx;
+   /* margin-left: 25rpx;
+    margin-right: 25rpx;*/
+    margin-bottom: 25rpx;
+    width: 660rpx;
+    border: 1px solid rgba(220, 220, 220, 1);
+    box-shadow:0px 5px 10px 0px rgba(220, 220, 220, 1);
+}
+.userinfo{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+.userinfo image{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+}
+.userinfo text{
+    display: block;
+    margin-left: 15px;
+    color: grey;
+    font-size: 12px;
+    font-family: SFUIText-regular;
+    height: 20px;
+    line-height: 20px;
+}
+.questiontitle{
+    padding-bottom: 10px;
+
+}
+.questiontitle text{
+    font-size: 15px;
+    text-align: left;
+    font-family: SFUIText-regular;
+    color: #8F8E94 100%;
+}
+.questionstat text{
+    color: grey;
+    font-size: 10px;
+    text-align: left;
+    font-family: SFUIText-regular;
+}
