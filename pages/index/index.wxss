@@ -36,3 +36,6 @@
     align-items: center;
 }
 /*待处理的问题*/
+.article-list-li{
+    width:100%;
+}
