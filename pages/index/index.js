@@ -18,6 +18,12 @@ Page({
         })
     },
     onLoad: function() {
+        var that = this;
+        if(wx.getStorageSync("logintoken")==""){
+            that.setData({
+                modalName: "loginmodal"
+            })
+        }
         if (app.globalData.userInfo) {
             this.setData({
                 userInfo: app.globalData.userInfo,

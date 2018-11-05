@@ -345,33 +345,51 @@ Page({
     // 点击预览事件
     onpreview: function(e) {
         var that = this;
-        wx.showLoading({
-            title: '正在加载...',
-        })
-        this.writeTextToNode();
-        this.handleOutput();
-        var questionContent
-        // 确定提交的形式，然后调用不懂的方法得questionContent
-        if (this.data.outputType.toLowerCase() === 'array') {
-            questionContent = that.data.nodeList
-        }
-        if (this.data.outputType.toLowerCase() === 'html') {
-            questionContent = that.nodeListToHTML()
-        }
+        if(that.data.questionTitle.length<5){
+            wx.showToast({
+                title:'标题至少五个字',
+                icon:"none"
+            })
+        }else{
+            if(that.data.selected == 0){
+                wx.showToast({
+                  title: '请选择奖励红包',
+                  icon:"none"
+                })
+            }else{
+                //两次判断都通过后，再进行后面的逻辑
+                wx.showLoading({
+                    title: '正在加载...',
+                })
+                that.writeTextToNode();
+                that.handleOutput();
+                var questionContent;
+                // 确定提交的形式，然后调用不懂的方法得questionContent
+                if (that.data.outputType.toLowerCase() === 'array') {
+                    questionContent = that.data.nodeList
+                }
+                if (that.data.outputType.toLowerCase() === 'html') {
+                    questionContent = that.nodeListToHTML()
+                }
 
-        var question = {
-            title: that.data.questionTitle,
-            content: questionContent,
-            reward: that.data.selected
-        };
-        wx.setStorage({
-            key: "question",
-            data: question
-        })
-        wx.hideLoading()
-        wx.navigateTo({
-            url: '../preview/preview'
-        })
+                var question = {
+                    title: that.data.questionTitle,
+                    content: questionContent,
+                    reward: that.data.selected
+                };
+                wx.setStorage({
+                    key: "question",
+                    data: question
+                })
+                wx.hideLoading()
+                wx.navigateTo({
+                    url: '../preview/preview'
+                })
+            }
+        }
+        
+        
+        
     },
 
 

@@ -83,26 +83,28 @@
   min-height: 2.5em;
   font-size: 32rpx;
   /* box-sizing: border-box; */
-  box-shadow:0px 0px 5px 0px rgba(187, 187, 187, 1);
+  box-shadow:0px 1px 5px 0px rgba(220, 220, 220, 0.8);
 }
 
 .editor-image {
   display: block;
   width: 700rpx;
-  box-shadow:0px 0px 5px 0px rgba(187, 187, 187, 1);
+  box-shadow:0px 0px 10px 0px rgba(187, 187, 187, 1);
 }
 /*顶部输入框的样式*/
 .header input{
-  font-size: 35rpx;
+  font-size: 18px;
+  line-height: 60rpx;
+  height:60rpx;
   padding: 20rpx;
-  border-bottom: 1px solid rgba(185, 185, 185, 1);
-  box-shadow:0px 0px 5px 0px rgba(187, 187, 187, 1);
+  border-bottom: 1px solid rgba(220, 220, 220, 1);
+  box-shadow:0px 1px 5px 0px rgba(220, 220, 220, 0.8);
 }
 /*奖励提示*/
 .reward-title{
   font-size: 14px;
   color: rgba(185, 185, 185, 0.8);
-  border-bottom: 1px solid rgba(185, 185, 185, 0.6);
+  border-bottom: 1px solid rgba(220, 220, 220, 0.8);
   padding: 10px;
 }
 /* 付款金额样式 */
@@ -111,7 +113,8 @@
   display:flex;
   flex-wrap: wrap;
   justify-content:space-around;
-  margin: 20px 0px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .price-list .item {

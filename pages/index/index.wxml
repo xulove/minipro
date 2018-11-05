@@ -38,10 +38,6 @@
             <view class="article-list-content">
                 <view class="article-list-desc">
                     <view class='article-list-text'>其实吧，做程序员也不都是枯燥乏味的，比如我吧，为了写段话在这里凑字数也是很开心的呀，嘻嘻嘻！求关注！持续更新组件...</view>
-                    <!-- 标签功能往后再加吧 -->
-                    <!-- <view class="article-list-tag">
-                    <view class='badge warning round'># 严肃脸 #</view>
-                </view> -->
                 </view>
             </view>
             <view class="item-list-data">
@@ -79,8 +75,12 @@
             <view class='modal-option'>
                 <view class='modal-option-btn success-text'>
                     <text class='iconfont icon-moneybag'></text> 微信支付</view>
-                <view class='modal-option-btn'>取消</view>
-                <view class='modal-option-btn '>确认</view>
+                <view class='modal-option-btn'>
+                    <button plain='plain' style='border:none;'>取消</button>
+                </view>
+                <view class='modal-option-btn '>
+                    <button plain='plain' style='border:none;'>确认</button>
+                </view>
             </view>
         </view>
     </view>

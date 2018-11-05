@@ -1,3 +1,4 @@
+@import "../../colorui.wxss";
 .indexpage {
     display: flex;
     flex-direction: column;
@@ -38,4 +39,6 @@
 /*待处理的问题*/
 .article-list-li{
     width:100%;
+    border-bottom: 1px solid rgba(220, 220, 220, 1);
+    box-shadow: 0px 2px 5px 0px rgba(220, 220, 220, 0.8);
 }
