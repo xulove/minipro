@@ -61,25 +61,27 @@
     </view>
 
     <!-- 登录的模态框 -->
-    <view class="modal-box {{modalName=='loginmodal'?'cur':''}}">
+    <view class="modal-box {{loginmodal==true?'cur':''}}">
         <view class='modal-dialog'>
             <view class="modal-title">
-                <text>请选择</text>
+                <text>登录</text>
                 <view class='bar-close badge danger round' bindtap='closeModal'>
                     <text class='iconfont icon-close'></text>
                 </view>
             </view>
             <view class='modal-bd modal-message'>
-                带确认和取消
+                <view style="text-align: center;">
+                    我们需要登录后再进行下面的操作
+                </view>
             </view>
             <view class='modal-option'>
-                <view class='modal-option-btn success-text'>
+                <!-- <view class='modal-option-btn success-text'>
                     <text class='iconfont icon-moneybag'></text> 微信支付</view>
                 <view class='modal-option-btn'>
                     <button plain='plain' style='border:none;'>取消</button>
-                </view>
+                </view> -->
                 <view class='modal-option-btn '>
-                    <button plain='plain' style='border:none;'>确认</button>
+                    <button type="primary" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" plain='plain' style='border:none;'>登录</button>
                 </view>
             </view>
         </view>

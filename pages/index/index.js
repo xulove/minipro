@@ -8,20 +8,17 @@ Page({
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        //modalName默认为空，当他等于loginmodal的时候，就会弹出登录模态框
-        modalName:""
-    },
-    //事件处理函数
-    bindViewTap: function() {
-        wx.navigateTo({
-            url: '../logs/logs'
-        })
+        //loginmodalName默认为false，当他值为true的时候，就会弹出登录模态框
+        loginmodal: false
     },
     onLoad: function() {
+        console.log("index-onload")
         var that = this;
-        if(wx.getStorageSync("logintoken")==""){
+        var token = wx.getStorageSync("token") || "";
+        if (!token) {
+            console.log("unable to get login token,we should login now")
             that.setData({
-                modalName: "loginmodal"
+                loginmodal: true
             })
         }
         if (app.globalData.userInfo) {
@@ -73,16 +70,16 @@ Page({
         console.log(e)
     },
     //打开登录的模态框
-    showModal: function (e) {
-    var showName = e.currentTarget.dataset.modal;
-    this.setData({
-      modalName: showName
-    })
-  },
-  //关闭登录的模态框
-  closeModal: function (e) {
-    this.setData({
-      modalName: null
-    })
-  },
+    showModal: function(e) {
+        var showName = e.currentTarget.dataset.modal;
+        this.setData({
+            modalName: showName
+        })
+    },
+    //关闭登录的模态框
+    closeModal: function(e) {
+        this.setData({
+            modalName: null
+        })
+    },
 })
