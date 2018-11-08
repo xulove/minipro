@@ -19,7 +19,7 @@ App({
                     url: that.globalData.requesturl + '/login', //仅为示例，并非真实的接口地址
                     data: {
                         code: res.code,
-                        userinfo: userInfo
+                        userinfo: JSON.stringify(userInfo)
                     },
                     header: {
                         'content-type': 'application/json' // 默认值
@@ -30,7 +30,7 @@ App({
                         wx.hideLoading()
                         that.globalData.userInfo = userInfo;
                         try {
-                            wx.setStorageSync('key', 'value')
+                            wx.setStorageSync('token', res.data.token)
                         } catch (e) {}
                     }
                 })
