@@ -9,7 +9,7 @@
     <block wx:for="{{nodeList}}" wx:for-item="node" wx:for-index="index" wx:key="{{index}}">
         <view class="editor-node-wrapper">
             <block wx:if="{{node.name === 'p'}}">
-                <textarea class="editor-textarea" value="{{node.children[0].text}}" auto-height maxlength="-1" data-index="{{index}}" bindinput="onTextareaInput" cursor-spacing="30">
+                <textarea class="editor-textarea" value="{{node.children[0].text}}" auto-height maxlength="-1" data-index="{{index}}" bindinput="onTextareaInput" cursor-spacing="30" placeholder="可以添加图片和文字，对问题更详细描述">
                 </textarea>
             </block>
             <block wx:if="{{node.name === 'img'}}">
@@ -35,7 +35,7 @@
     </view>
     <view class="askaction">
         <button  type='primary' bindtap="onpreview" plain="plain">预览</button>
-        <button  type="primary" bindtap="onFinish">提交</button>
+        <button  type="primary" bindtap="onPay">支付红包</button>
     </view>
 
 </view>
