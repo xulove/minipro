@@ -1,4 +1,5 @@
 // pages/ask/ask.js
+var app = getApp()
 Page({
 
     /**
@@ -124,30 +125,40 @@ Page({
      * 事件：添加图片
      */
     addImage: function(e) {
+        var that = this;
         this.writeTextToNode();
         const index = e.currentTarget.dataset.index;
         wx.chooseImage({
             success: res => {
-                const tempFilePath = res.tempFilePaths[0];
-                wx.getImageInfo({
-                    src: tempFilePath,
-                    success: res => {
-                        const node = {
-                            name: 'img',
-                            attrs: {
-                                class: 'xing-img',
-                                style: 'width: 100%',
-                                src: tempFilePath,
-                                _height: res.height / res.width,
-                            },
-                        }
-                        let nodeList = this.data.nodeList;
-                        let textBufferPool = this.data.textBufferPool;
-                        nodeList.splice(index + 1, 0, node);
-                        textBufferPool.splice(index + 1, 0, tempFilePath);
-                        this.setData({
-                            nodeList,
-                            textBufferPool,
+                var tempFilePath = res.tempFilePaths[0];
+                //上传图片，用返回的图片路劲替换展示的图片路劲
+                wx.uploadFile({
+                    url: app.globalData.requesturl + '/uploadimage' ,
+                    filePath: tempFilePath,
+                    name: "image",
+                    success:function(uploadres){
+                        var data = JSON.parse(uploadres.data)
+                        wx.getImageInfo({
+                            src: app.globalData.requesturl +"/imagelook/"+data.imageurl,
+                            success: res => {
+                                const node = {
+                                    name: 'img',
+                                    attrs: {
+                                        class: 'xing-img',
+                                        style: 'width: 100%',
+                                        src: tempFilePath,
+                                        _height: res.height / res.width,
+                                    },
+                                }
+                                let nodeList = that.data.nodeList;
+                                let textBufferPool = that.data.textBufferPool;
+                                nodeList.splice(index + 1, 0, node);
+                                textBufferPool.splice(index + 1, 0, tempFilePath);
+                                that.setData({
+                                    nodeList,
+                                    textBufferPool,
+                                })
+                            }
                         })
                     }
                 })
@@ -343,6 +354,26 @@ Page({
             selected: total
         });
     },
+    // 处理问题的基本信息,然后得到问题对象
+    getquestionHandler:function(e){
+        var that = this;
+        that.writeTextToNode();
+        that.handleOutput();
+        var questionContent;
+        // 确定提交的形式，然后调用不同的方法得questionContent
+        if (that.data.outputType.toLowerCase() === 'array') {
+            questionContent = that.data.nodeList
+        }
+        if (that.data.outputType.toLowerCase() === 'html') {
+            questionContent = that.nodeListToHTML()
+        }
+        var question = {
+            title: that.data.questionTitle,
+            content: questionContent,
+            reward: that.data.selected
+        };
+        return question
+    },
     // 点击预览事件
     onpreview: function(e) {
         var that = this;
@@ -362,22 +393,7 @@ Page({
                 wx.showLoading({
                     title: '正在加载...',
                 })
-                that.writeTextToNode();
-                that.handleOutput();
-                var questionContent;
-                // 确定提交的形式，然后调用不懂的方法得questionContent
-                if (that.data.outputType.toLowerCase() === 'array') {
-                    questionContent = that.data.nodeList
-                }
-                if (that.data.outputType.toLowerCase() === 'html') {
-                    questionContent = that.nodeListToHTML()
-                }
-
-                var question = {
-                    title: that.data.questionTitle,
-                    content: questionContent,
-                    reward: that.data.selected
-                };
+                var question = that.getquestionHandler()
                 wx.setStorage({
                     key: "question",
                     data: question
@@ -387,11 +403,44 @@ Page({
                     url: '../preview/preview'
                 })
             }
-        }
-        
-        
-        
+        }       
     },
+    //点击支付事件
+    onPay:function(e){
+        var that = this;
+        console.log("onPay...")
+        // 得到问题的基本信息
+        var question = that.getquestionHandler()
+        //把问题保存在本地的存储对象里
+        wx.setStorage({
+            key: "question",
+            data: question
+        })
+
+        // 首先微信登录获取code
+        wx.login({
+            success: res => {
+                // 这时候我们是发送给后台的接口pay，获取openid的操作，在pay中完成
+                wx.request({
+                    url: app.globalData.requesturl + '/pay',
+                    data: {
+                        code: res.code,
+                        question: JSON.stringify(question)
+                    },
+                    header: {
+                        'content-type': 'application/json' // 默认值
+                    },
+                    //这个是准备订单成功，我们可以发起支付了
+                    success(res) {
+                        console.log(res.data);
+                        
+                    },fail(err){
+                        console.log(err)
+                    }
+                })
+            }
+        })
+    }
 
 
 })
