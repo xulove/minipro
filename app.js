@@ -32,6 +32,9 @@ App({
                         try {
                             wx.setStorageSync('token', res.data.token)
                         } catch (e) {}
+                    },fail(err){
+                      console.log(err)
+                      wx.hideLoading()
                     }
                 })
             }
@@ -41,6 +44,6 @@ App({
     towxml: new Towxml(),
     globalData: {
         userInfo: null,
-        requesturl: "http://localhost:3009"
+        requesturl: "https://03e00247.ngrok.io"
     }
 })

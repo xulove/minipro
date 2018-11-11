@@ -288,34 +288,34 @@ Page({
         return this.data.nodeList.map(node => `<${node.name} ${Object.keys(node.attrs).map(key => `${key}="${node.attrs[key]}"`).join(' ')}>${node.children ? this.htmlEncode(node.children[0].text) : ''}</${node.name}>`).join('');
     },
     /**
-     * 方法：上传图片
+     * 方法：上传图片,这个暂时没有用
      */
-    uploadImage: function(node) {
-        return new Promise(resolve => {
-            let options = {
-                filePath: node.attrs.src,
-                url: this.data.imageUploadUrl,
-                name: this.data.imageUploadName,
-            }
-            if (this.data.imageUploadHeader) {
-                options.header = this.data.imageUploadHeader;
-            }
-            if (this.data.imageUploadFormData) {
-                options.formData = this.data.imageUploadFormData;
-            }
-            options.success = res => {
-                const keyChain = this.data.imageUploadKeyChain.split('.');
-                let url = JSON.parse(res.data);
-                keyChain.forEach(key => {
-                    url = url[key];
-                })
-                node.attrs.src = url;
-                node.attrs._uploaded = true;
-                resolve();
-            }
-            wx.uploadFile(options);
-        })
-    },
+    // uploadImage: function(node) {
+    //     return new Promise(resolve => {
+    //         let options = {
+    //             filePath: node.attrs.src,
+    //             url: this.data.imageUploadUrl,
+    //             name: this.data.imageUploadName,
+    //         }
+    //         if (this.data.imageUploadHeader) {
+    //             options.header = this.data.imageUploadHeader;
+    //         }
+    //         if (this.data.imageUploadFormData) {
+    //             options.formData = this.data.imageUploadFormData;
+    //         }
+    //         options.success = res => {
+    //             const keyChain = this.data.imageUploadKeyChain.split('.');
+    //             let url = JSON.parse(res.data);
+    //             keyChain.forEach(key => {
+    //                 url = url[key];
+    //             })
+    //             node.attrs.src = url;
+    //             node.attrs._uploaded = true;
+    //             resolve();
+    //         }
+    //         wx.uploadFile(options);
+    //     })
+    // },
     /**
      * 方法：处理节点，递归
      */
@@ -332,13 +332,14 @@ Page({
             return;
         }
         const node = nodeList[index];
-        if (node.name === 'img' && !node.attrs._uploaded) {
-            this.uploadImage(node).then(() => {
-                this.handleOutput(index + 1)
-            });
-        } else {
-            this.handleOutput(index + 1);
-        }
+        this.handleOutput(index + 1)
+        // if (node.name === 'img' && !node.attrs._uploaded) {
+        //     this.uploadImage(node).then(() => {
+        //         this.handleOutput(index + 1)
+        //     });
+        // } else {
+        //     this.handleOutput(index + 1);
+        // }
     },
     // 标题输入框输入事件
     onTitleInput: function(e) {
@@ -416,16 +417,21 @@ Page({
             key: "question",
             data: question
         })
-
+        console.log(question)
         // 首先微信登录获取code
         wx.login({
             success: res => {
-                // 这时候我们是发送给后台的接口pay，获取openid的操作，在pay中完成
+                // 调用后端的预支付接口
+                // 获取openid的操作，在pay中完成
+                console.log(app.globalData.requesturl + '/pay')
                 wx.request({
                     url: app.globalData.requesturl + '/pay',
+                    method:"POST",
                     data: {
                         code: res.code,
-                        question: JSON.stringify(question)
+                        questiontitle: question.title,
+                        questioncontent: question.content,
+                        questionreward: question.reward
                     },
                     header: {
                         'content-type': 'application/json' // 默认值
@@ -433,6 +439,15 @@ Page({
                     //这个是准备订单成功，我们可以发起支付了
                     success(res) {
                         console.log(res.data);
+                        wx.requestPayment({
+                          timeStamp: '',
+                          nonceStr: '',
+                          package: '',
+                          signType: 'MD5',
+                          paySign: '',
+                          success (res) { },
+                          fail (res) { }
+                        })
                         
                     },fail(err){
                         console.log(err)
