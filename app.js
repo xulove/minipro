@@ -32,6 +32,7 @@ App({
                         try {
                             wx.setStorageSync('token', res.data.token)
                         } catch (e) {}
+                        return true
                     },fail(err){
                       console.log(err)
                       wx.hideLoading()

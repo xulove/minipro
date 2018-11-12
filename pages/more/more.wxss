@@ -1,4 +1,4 @@
-
+@import "../../colorui.wxss";
 /*上部的样式*/
 .user {
   display: flex;

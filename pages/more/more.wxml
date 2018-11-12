@@ -1,5 +1,5 @@
 
-<view class="container more">
+<view class="container more ">
   <view class="user flex-wrp">
     <view class="avatar flex-item">
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
@@ -10,7 +10,7 @@
     </view>
   </view>
 
-  <view class="my">
+  <view class="my" wx:if="{{logined}}">
   <!-- 所有自己提出的问题 -->
     <view class="my-item flex-wrp">
       <view class="myitem-icon flex-item" >
@@ -73,3 +73,30 @@
 
   </view>
 </view>
+
+<!-- 登录的模态框 -->
+    <view class="modal-box {{more_login_modal==true?'cur':''}}">
+        <view class='modal-dialog'>
+            <view class="modal-title">
+                <text>登录</text>
+                <view class='bar-close badge danger round' bindtap='closeModal'>
+                    <text class='iconfont icon-close'></text>
+                </view>
+            </view>
+            <view class='modal-bd modal-message'>
+                <view style="text-align: center;">
+                    我们需要登录后再进行下面的操作
+                </view>
+            </view>
+            <view class='modal-option'>
+                <!-- <view class='modal-option-btn success-text'>
+                    <text class='iconfont icon-moneybag'></text> 微信支付</view>
+                <view class='modal-option-btn'>
+                    <button plain='plain' style='border:none;'>取消</button>
+                </view> -->
+                <view class='modal-option-btn '>
+                    <button type="primary" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" plain='plain' style='border:none;'>登录</button>
+                </view>
+            </view>
+        </view>
+    </view>
