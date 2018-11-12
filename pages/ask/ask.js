@@ -28,7 +28,7 @@ Page({
         textBufferPool: [],
         //初始化页面展示的内容
         // html: '<p class="xing-p">不谈琐碎的细节，突出主题，颜色运用。这些都是行为，这些行为是纹身师的能力表达，而他们要达到一个目标：</p><img class="xing-img" style="width: 100%" src="https://www.uooyoo.com/img2017/2/15/2017021560909533.jpg" _height="0.61983" _uploaded="true"></img><p class="xing-p">创作出来的这个纹身，有没有在瞬间抓住人眼球，让人不断的想一直看。</p>',
-        html:'<p class="xing-p"></p>',
+        html: '<p class="xing-p"></p>',
         //红包的列表
         prices: [
             2, 5, 10, 20, 50
@@ -133,13 +133,13 @@ Page({
                 var tempFilePath = res.tempFilePaths[0];
                 //上传图片，用返回的图片路劲替换展示的图片路劲
                 wx.uploadFile({
-                    url: app.globalData.requesturl + '/uploadimage' ,
+                    url: app.globalData.requesturl + '/uploadimage',
                     filePath: tempFilePath,
                     name: "image",
-                    success:function(uploadres){
+                    success: function(uploadres) {
                         var data = JSON.parse(uploadres.data)
                         wx.getImageInfo({
-                            src: app.globalData.requesturl +"/imagelook/"+data.imageurl,
+                            src: app.globalData.requesturl + "/imagelook/" + data.imageurl,
                             success: res => {
                                 const node = {
                                     name: 'img',
@@ -356,7 +356,7 @@ Page({
         });
     },
     // 处理问题的基本信息,然后得到问题对象
-    getquestionHandler:function(e){
+    getquestionHandler: function(e) {
         var that = this;
         that.writeTextToNode();
         that.handleOutput();
@@ -378,18 +378,18 @@ Page({
     // 点击预览事件
     onpreview: function(e) {
         var that = this;
-        if(that.data.questionTitle.length<5){
+        if (that.data.questionTitle.length < 5) {
             wx.showToast({
-                title:'标题至少五个字',
-                icon:"none"
+                title: '标题至少五个字',
+                icon: "none"
             })
-        }else{
-            if(that.data.selected == 0){
+        } else {
+            if (that.data.selected == 0) {
                 wx.showToast({
-                  title: '请选择奖励红包',
-                  icon:"none"
+                    title: '请选择奖励红包',
+                    icon: "none"
                 })
-            }else{
+            } else {
                 //两次判断都通过后，再进行后面的逻辑
                 wx.showLoading({
                     title: '正在加载...',
@@ -404,10 +404,10 @@ Page({
                     url: '../preview/preview'
                 })
             }
-        }       
+        }
     },
     //点击支付事件
-    onPay:function(e){
+    onPay: function(e) {
         var that = this;
         console.log("onPay...")
         // 得到问题的基本信息
@@ -426,7 +426,7 @@ Page({
                 console.log(app.globalData.requesturl + '/pay')
                 wx.request({
                     url: app.globalData.requesturl + '/pay',
-                    method:"POST",
+                    method: "POST",
                     data: {
                         code: res.code,
                         questiontitle: question.title,
@@ -438,18 +438,23 @@ Page({
                     },
                     //这个是准备订单成功，我们可以发起支付了
                     success(res) {
-                        console.log(res.data);
+                        var data = res.data
                         wx.requestPayment({
-                          timeStamp: '',
-                          nonceStr: '',
-                          package: '',
-                          signType: 'MD5',
-                          paySign: '',
-                          success (res) { },
-                          fail (res) { }
+                            timeStamp: data.timeStamp,
+                            nonceStr: data.nonceStr,
+                            package: data.package,
+                            signType: 'MD5',
+                            paySign: data.paySign,
+                            success(res) {
+                                console.log("支付成功")
+                            },
+                            fail(res) {
+                                console.log("支付失败")
+                            }
                         })
-                        
-                    },fail(err){
+
+                    },
+                    fail(err) {
                         console.log(err)
                     }
                 })

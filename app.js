@@ -44,6 +44,6 @@ App({
     towxml: new Towxml(),
     globalData: {
         userInfo: null,
-        requesturl: "https://03e00247.ngrok.io"
+        requesturl: "https://4181b667.ngrok.io"
     }
 })
