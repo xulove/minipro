@@ -1,31 +1,38 @@
+<!-- 此页面包括的内容可就多了，和我相关的问题都需要展示 -->
+<!-- 我提问的问题、我回答的问题、我浏览的问题 -->
 <view class="container">
-	<view class='section unHandlequestions'>
-        <view class='questionitem' bindtap='questionitemclick'>
-            <view class='userinfo'>
-                <image src=''></image>
-                <text>豆瓣花田</text>
+    <view class='section'>
+        <!-- 试着用下colorUI的列表看看怎么样 -->
+        <view class="article-list-li">
+        <view class="article-list-title">这是没有图片的文章列表项的标题</view>
+        <view class="article-list-content">
+            <view class="article-list-desc">
+                <view class='article-list-text'>其实吧，做程序员也不都是枯燥乏味的，比如我吧，为了写段话在这里凑字数也是很开心的呀，嘻嘻嘻！求关注！持续更新组件...</view>
             </view>
-            <view class='questiontitle'>
-                <text>以太坊钱包开发中如何获取历史交易记录?以太坊钱包开发中如何获取历史交易记录?以太坊钱包开发中如何获取历史交易记录?</text>
-            </view>
-            <view class='questionstat'>
-                <text style='margin-right:10px;'>2018-10-31</text>
-                <text>等待回答</text>
-            </view>
-        </view>
-        <view class='questionitem'>
-            <view class='userinfo'>
-                <image src=''></image>
-                <text>豆瓣花田</text>
-            </view>
-            <view class='questiontitle'>
-                <text>以太坊钱包开发中如何获取历史交易记录?</text>
-            </view>
-            <view class='questionstat'>
-                <text style='margin-right:10px;'>2018-10-31</text>
-                <text>等待回答</text>
-            </view>
+
         </view>
 
+        <view class="item-list-data">
+            <image src="http://image.weilanwl.com/img/4x4.jpg" class='round'></image>
+            <view class='item-list-author'>
+                <view class="item-list-name">文晓港
+                    <text>/ 90后</text>
+                </view>
+                <view class="item-list-info">
+                    <text class="iconfont icon-timefill"> 十天前</text>
+                    <!-- <view class="item-list-num">
+                            <text class="iconfont icon-attentionfill"> 10</text>
+                            <text class="iconfont icon-favorfill"> 20</text>
+                            <text class="iconfont icon-messagefill"> 30</text>
+                        </view> -->
+                    <view class="article-list-tag">
+                        <view class='badge danger round mr-sm'>假装有猫系列</view>
+                        <view class='badge success round'>戏精系列</view>
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
+    </view>
+    
 </view>

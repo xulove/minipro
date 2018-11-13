@@ -36,9 +36,20 @@ Page({
     }
   },
   // 我的提问点击事件
-  myquestionclick:function(){
+  myaskclick:function(){
     wx.navigateTo({
-      url:'../myquestion/myquestion'
+      url:'../myquestion/myquestion?query=myask'
+    })
+  },
+  // 我的回答点击事件
+  myanswerclick:function(){
+    wx.navigateTo({
+      url:'../myquestion/myquestion?query=myanswer'
+    })
+  },
+  myreadclick:function(){
+    wx.navigateTo({
+      url:'../myquestion/myquestion?query=myread'
     })
   },
   // 点击登录按钮

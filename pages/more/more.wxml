@@ -1,102 +1,117 @@
-
 <view class="container more ">
-  <view class="user flex-wrp">
-    <view class="avatar flex-item">
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    </view>
-    <view class="user-info flex-item">
-      <text class="userinfo-nickname">{{userInfo.nickName}}豆瓣花田</text>
-      <text class="edit">查看或编辑个人主页</text>
-    </view>
-  </view>
-
-  <view class="my" wx:if="{{logined}}">
-  <!-- 所有自己提出的问题 -->
-    <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-        <image src="../../images/eye.png"></image>
-      </view>
-      <view class="myitem-name flex-item">
-        <button  plain="plain" bindtap="myquestionclick">我的提问</button>
-      </view>
-    </view>
-
-    <!-- 所有自己回答的问题 -->
-    <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-        <image src="../../images/eye.png"></image>
-      </view>
-      <view class="myitem-name flex-item">
-        <button plain="plain" bindtap="myquestionclick">我的回答</button>
-      </view>
+    <view class='mine'>
+        <view class='avtar'>
+            <image src='http://www.qqzhi.com/uploadpic/2014-05-14/051120936.jpg'></image>
+        </view>
+        <view class="nickname">
+            <text>{{userInfo.nickName}}豆瓣花田</text>
+        </view>
+        <view class='data-types'>
+            <view class='type-item' bindtap="myaskclick">
+                <view class='count'>9</view>
+                <view class='title'>提问</view>
+            </view>
+            <view class='type-item' bindtap="myanswerclick" >
+                <view class='count'>2</view>
+                <view class='title'>回答</view>
+            </view>
+            <view class='type-item' bindtap="myreadclick">
+                <view class='count'>5</view>
+                <view class='title'>阅读</view>
+            </view>
+        </view>
     </view>
 
-    <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-        <image src="../../images/eye.png"></image>
-      </view>
-      <view class="myitem-name flex-item">
-        <button plain="plain" bindtap="myquestionclick">我的关注</button>
-      </view>
-    </view>
 
-    
-    <!-- 观看记录是自己购买过的答案，购买答案需要问题的1/10金额 -->
-    <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-        <image src="../../images/recent.png"></image>
-      </view>
-      <view class="myitem-name flex-item">
-        <button plain="plain" bindtap="myquestionclick">浏览记录</button>
-      </view>
-    </view>
+    <view class="my" wx:if="{{logined}}">
+        <view class="list-box">
+            <view class="list-li list-arrow" bindtap=''>
+                <view class="list-text">
+                    <view class="iconfont icon-right success-text"></view> 收益
+                </view>
+            </view>
+            <view class="list-li list-arrow">
+                <view class="list-text">
+                    <view class="iconfont icon-right success-text"> </view> 草稿
+                </view>
+            </view>
+        </view>
+        <!-- 所有自己回答的问题 -->
+        <!-- <view class="my-item flex-wrp">
+            <view class="myitem-icon flex-item">
+                <image src="../../images/eye.png"></image>
+            </view>
+            <view class="myitem-name flex-item">
+                <button plain="plain" bindtap="myquestionclick">我的回答</button>
+            </view>
+        </view>
 
-    <!-- 草稿就是自己上次编辑的问题，或者答案，还没有发送，就先暂时给保存下来了 -->
-    <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-        <image src="../../images/draft.png"></image>
-      </view>
-      <view class="myitem-name flex-item">
-        <button plain="plain" bindtap="myquestionclick">我的草稿</button>
-      </view>
-    </view>
+        <view class="my-item flex-wrp">
+            <view class="myitem-icon flex-item">
+                <image src="../../images/eye.png"></image>
+            </view>
+            <view class="myitem-name flex-item">
+                <button plain="plain" bindtap="myquestionclick">我的关注</button>
+            </view>
+        </view>
 
-    <!-- 自己提问（被其他人参考），或者回答赚的赏金 -->
-    <view class="my-item flex-wrp">
-      <view class="myitem-icon flex-item" >
-        <image src="../../images/live.png"></image>
-      </view>
-      <view class="myitem-name flex-item">
-        <button plain="plain" bindtap="myquestionclick">我的收益</button>
-      </view>
-    </view>
+ -->
+        <!-- 观看记录是自己购买过的答案，购买答案需要问题的1/10金额 -->
+        <!-- <view class="my-item flex-wrp">
+            <view class="myitem-icon flex-item">
+                <image src="../../images/recent.png"></image>
+            </view>
+            <view class="myitem-name flex-item">
+                <button plain="plain" bindtap="myquestionclick">浏览记录</button>
+            </view>
+        </view> -->
 
-  </view>
+        <!-- 草稿就是自己上次编辑的问题，或者答案，还没有发送，就先暂时给保存下来了 -->
+       <!--  <view class="my-item flex-wrp">
+            <view class="myitem-icon flex-item">
+                <image src="../../images/draft.png"></image>
+            </view>
+            <view class="myitem-name flex-item">
+                <button plain="plain" bindtap="myquestionclick">我的草稿</button>
+            </view>
+        </view> -->
+
+        <!-- 自己提问（被其他人参考），或者回答赚的赏金 -->
+        <!-- <view class="my-item flex-wrp">
+            <view class="myitem-icon flex-item">
+                <image src="../../images/live.png"></image>
+            </view>
+            <view class="myitem-name flex-item">
+                <button plain="plain" bindtap="myquestionclick">我的收益</button>
+            </view>
+        </view> -->
+
+    </view>
 </view>
 
 <!-- 登录的模态框 -->
-    <view class="modal-box {{more_login_modal==true?'cur':''}}">
-        <view class='modal-dialog'>
-            <view class="modal-title">
-                <text>登录</text>
-                <view class='bar-close badge danger round' bindtap='closeModal'>
-                    <text class='iconfont icon-close'></text>
-                </view>
+<view class="modal-box {{more_login_modal==true?'cur':''}}">
+    <view class='modal-dialog'>
+        <view class="modal-title">
+            <text>登录</text>
+            <view class='bar-close badge danger round' bindtap='closeModal'>
+                <text class='iconfont icon-close'></text>
             </view>
-            <view class='modal-bd modal-message'>
-                <view style="text-align: center;">
-                    我们需要登录后再进行下面的操作
-                </view>
+        </view>
+        <view class='modal-bd modal-message'>
+            <view style="text-align: center;">
+                我们需要登录后再进行下面的操作
             </view>
-            <view class='modal-option'>
-                <!-- <view class='modal-option-btn success-text'>
+        </view>
+        <view class='modal-option'>
+            <!-- <view class='modal-option-btn success-text'>
                     <text class='iconfont icon-moneybag'></text> 微信支付</view>
                 <view class='modal-option-btn'>
                     <button plain='plain' style='border:none;'>取消</button>
                 </view> -->
-                <view class='modal-option-btn '>
-                    <button type="primary" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" plain='plain' style='border:none;'>登录</button>
-                </view>
+            <view class='modal-option-btn '>
+                <button type="primary" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" plain='plain' style='border:none;'>登录</button>
             </view>
         </view>
     </view>
+</view>

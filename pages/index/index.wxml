@@ -15,7 +15,9 @@
                 <view class="article-list-desc">
                     <view class='article-list-text'>其实吧，做程序员也不都是枯燥乏味的，比如我吧，为了写段话在这里凑字数也是很开心的呀，嘻嘻嘻！求关注！持续更新组件...</view>
                 </view>
+
             </view>
+
             <view class="item-list-data">
                 <image src="http://image.weilanwl.com/img/4x4.jpg" class='round'></image>
                 <view class='item-list-author'>
@@ -24,10 +26,14 @@
                     </view>
                     <view class="item-list-info">
                         <text class="iconfont icon-timefill"> 十天前</text>
-                        <view class="item-list-num">
+                        <!-- <view class="item-list-num">
                             <text class="iconfont icon-attentionfill"> 10</text>
                             <text class="iconfont icon-favorfill"> 20</text>
                             <text class="iconfont icon-messagefill"> 30</text>
+                        </view> -->
+                        <view class="article-list-tag">
+                            <view class='badge danger round mr-sm'>假装有猫系列</view>
+                            <view class='badge success round'>戏精系列</view>
                         </view>
                     </view>
                 </view>
