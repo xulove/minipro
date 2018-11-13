@@ -62,6 +62,11 @@
 .my .list-box{
   width: 750rpx;
 }
+.my .list-li{
+  height: 130rpx;
+}
 .my .list-text{
   color: #aaa;
+  /*color:#5db85d;*/
+
 }

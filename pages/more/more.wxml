@@ -25,15 +25,18 @@
 
     <view class="my" wx:if="{{logined}}">
         <view class="list-box">
-            <view class="list-li list-arrow" bindtap=''>
+            <view class="list-li" bindtap=''>
                 <view class="list-text">
                     <view class="iconfont icon-right success-text"></view> 收益
+
                 </view>
+                <view class="iconfont icon-right success-text"></view>
             </view>
-            <view class="list-li list-arrow">
+            <view class="list-li">
                 <view class="list-text">
                     <view class="iconfont icon-right success-text"> </view> 草稿
                 </view>
+                <view class="iconfont icon-right success-text"></view>
             </view>
         </view>
         <!-- 所有自己回答的问题 -->
