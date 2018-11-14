@@ -35,7 +35,7 @@
     </view>
     <view class="askaction">
         <button  type='primary' bindtap="onpreview" plain="plain">预览</button>
-        <button  type="primary" bindtap="onPay">支付红包</button>
+        <button  type="primary" bindtap="onPay">提交</button>
     </view>
 
 </view>

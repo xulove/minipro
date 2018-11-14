@@ -31,7 +31,7 @@ Page({
         html: '<p class="xing-p"></p>',
         //红包的列表
         prices: [
-            2, 5, 10, 20, 50
+            2, 5, 1, 20, 50
         ],
         //选中的红包金额
         selected: 0,
@@ -406,7 +406,7 @@ Page({
             }
         }
     },
-    //点击支付事件
+    //点击支付事件，就是点击提交
     onPay: function(e) {
         var that = this;
         console.log("onPay...")
@@ -417,10 +417,12 @@ Page({
             key: "question",
             data: question
         })
-        console.log(question)
-        // 首先微信登录获取code
+
         wx.login({
             success: res => {
+                console.log(question)
+                // 首先微信登录获取code
+                console.log(res.code)
                 // 调用后端的预支付接口
                 // 获取openid的操作，在pay中完成
                 console.log(app.globalData.requesturl + '/pay')

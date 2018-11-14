@@ -38,6 +38,13 @@
                 </view>
                 <view class="iconfont icon-right success-text"></view>
             </view>
+            <view class="list-li" bindtap=''>
+                <view class="list-text">
+                    <view class="iconfont icon-right success-text"></view> 客服
+
+                </view>
+                <view class="iconfont icon-right success-text"></view>
+            </view>
         </view>
         <!-- 所有自己回答的问题 -->
         <!-- <view class="my-item flex-wrp">

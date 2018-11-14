@@ -13,7 +13,7 @@ App({
           title: '登录中...',
         })
         wx.login({
-            success: res => {
+            success: function(res) {
                 // 发送 res.code 到后台换取 openId, token
                 wx.request({
                     url: that.globalData.requesturl + '/login', //仅为示例，并非真实的接口地址
@@ -45,6 +45,6 @@ App({
     towxml: new Towxml(),
     globalData: {
         userInfo: null,
-        requesturl: "https://4181b667.ngrok.io"
+        requesturl: "https://xiaowenti.nextblockchain.top"
     }
 })
