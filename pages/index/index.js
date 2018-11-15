@@ -71,4 +71,10 @@ Page({
             loginmodal: false
         })
     },
+    // 点击问题列表，实现跳转
+    onQuestionTap:function(e){
+        wx.navigateTo({
+            url: '../question/question',
+        })
+    }
 })

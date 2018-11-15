@@ -9,7 +9,7 @@
     <view class='tiptitle'>待处理问题</view>
     <view class='section unHandlequestions'>
         <!-- 试着用下colorUI的列表看看怎么样 -->
-        <view class="article-list-li">
+        <view class="article-list-li" bindtap='onQuestionTap'>
             <view class="article-list-title">这是没有图片的文章列表项的标题</view>
             <view class="article-list-content">
                 <view class="article-list-desc">
