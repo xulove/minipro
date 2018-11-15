@@ -5,7 +5,9 @@
         "pages/ask/ask",
         "pages/preview/preview",
         "pages/more/more",
-        "pages/myquestion/myquestion"
+        "pages/myquestion/myquestion",
+        "pages/question/question",
+        "pages/answer/answer"
     ],
     "window": {
         "backgroundTextStyle": "light",
