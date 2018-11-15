@@ -40,10 +40,19 @@ Page({
     },
     // 点击【开始提问】按钮
     onask: function(e) {
-        console.log("onask")
-        wx.navigateTo({
+        console.log("onask was called")
+        var token = wx.getStorageSync("token") || "";
+        if (!token) {
+            console.log("unable to get login token,we should login now")
+            that.setData({
+                loginmodal: true
+            })
+        }else{
+            wx.navigateTo({
             url: "../ask/ask"
         })
+        }
+        
     },
     //点击问题item
     questionitemclick: function(e) {

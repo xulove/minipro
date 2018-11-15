@@ -18,12 +18,12 @@ Page({
   },
   onLoad: function () {
     var that = this;
-    console.log('more-onLoad')
+    console.log('more:onLoad was called')
     //首先去获取token,有的话就去后台获取提问，没有的话，就登录
     var token = wx.getStorageSync("token") || "";
     if (!token) {
         //没有token就登录
-        console.log("unable to get login token,we should login now")
+        console.log("unable to get login token,should login now")
         that.setData({
             more_login_modal: true
         })
