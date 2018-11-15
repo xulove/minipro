@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -73,6 +73,18 @@
 				{
 					"id": -1,
 					"name": "question",
+					"pathName": "pages/question/question",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "回答界面",
+					"pathName": "pages/answer/answer",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问题界面",
 					"pathName": "pages/question/question"
 				}
 			]

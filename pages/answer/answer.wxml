@@ -52,10 +52,10 @@
 
     <view class="answer-footer flex-wrp">
         <view class="good flex-item">
-            <view class="good-bad">
+            <!-- <view class="good-bad">
                 <image src="../../images/good-bad.png"></image>
             </view>
-            <view class="good-num">2.1k</view>
+            <view class="good-num">2.1k</view> -->
         </view>
         <view class="operation-wrp flex-item">
             <view class="operation flex-wrp flex-tab">
